@@ -33,4 +33,4 @@ jobs:
       - name: Deploy to EKS
         run: |
           aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
-          kubectl apply -k backend/
+          kubectl apply -f backend/
