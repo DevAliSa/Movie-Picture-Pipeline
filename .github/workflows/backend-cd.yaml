@@ -32,4 +32,5 @@ jobs:
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
       - name: Deploy to EKS
         run: |
+          aws eks update-kubeconfig --name ${{ secrets.EKS_CLUSTER_NAME }} --region ${{ secrets.AWS_REGION }}
           kubectl apply -f backend/k8s/deployment.yaml -f backend/k8s/service.yaml
