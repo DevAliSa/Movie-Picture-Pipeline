@@ -15,6 +15,8 @@ jobs:
       - run: pip install pipenv
       - run: pipenv install --dev
         working-directory: backend
+      - run: pipenv install pylint pytest --dev   
+        working-directory: backend
       - run: pipenv run pylint *.py
         working-directory: backend
 
@@ -27,6 +29,8 @@ jobs:
           python-version: "3.10"
       - run: pip install pipenv
       - run: pipenv install --dev
+        working-directory: backend
+      - run: pipenv install pytest pylint --dev   
         working-directory: backend
       - run: pipenv run pytest
         working-directory: backend
